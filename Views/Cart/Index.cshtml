@@ -1,0 +1,25 @@
+﻿@model IEnumerable<OrderItem>
+
+<h2>Your Cart</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="post" asp-action="ConfirmOrder">
+    <button type="submit" class="btn btn-success">Confirm Order</button>
+</form>

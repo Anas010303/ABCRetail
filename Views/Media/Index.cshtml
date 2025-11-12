@@ -1,0 +1,32 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Media Files";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Upload" asp-controller="Media" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required />
+    <button type="submit">Upload</button>
+</form>
+
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var blobUrl in Model)
+        {
+            var fileName = blobUrl.Split('/').Last();
+            <li>
+                <a href="@blobUrl" target="_blank">@fileName</a>
+                | <a asp-action="Delete" asp-route-blobName="@fileName">Delete</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No media files found.</p>
+}

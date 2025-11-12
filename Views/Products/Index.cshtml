@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ABC_Retail2.Models.ProductEntity>
+<h2>Products</h2>
+<p><a href="/Products/Create">Add Product</a></p>
+<table class="table">
+    <thead><tr><th>Name</th><th>Price</th><th>Stock</th><th>Image</th></tr></thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Price</td>
+                <td>@p.StockLevel</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(p.BlobImageUrl))
+                    {
+                        <img src="@p.BlobImageUrl" style="max-height:80px;" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

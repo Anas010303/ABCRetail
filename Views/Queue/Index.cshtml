@@ -1,0 +1,23 @@
+﻿@model IEnumerable<string>
+<h2>Queue: Processing</h2>
+
+<form method="post" asp-action="Enqueue">
+    <input name="message" placeholder="Message" />
+    <button type="submit">Enqueue</button>
+</form>
+
+<form method="post" asp-action="Process" style="margin-top:10px;">
+    <button type="submit">Process (Receive & Delete)</button>
+</form>
+
+<ul>
+    @foreach (var m in Model)
+    {
+        <li>@m</li>
+    }
+</ul>
+
+@if (TempData["Processed"] != null)
+{
+    <div class="alert alert-success">@TempData["Processed"]</div>
+}

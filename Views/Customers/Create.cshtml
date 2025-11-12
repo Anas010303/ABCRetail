@@ -1,0 +1,25 @@
+﻿@model ABC_Retail2.Models.CustomerEntity
+@{
+    ViewData["Title"] = "Add Customer";
+}
+<h2>Add Customer</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input class="form-control" name="FullName" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" name="Email" />
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input class="form-control" name="Phone" />
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input class="form-control" name="Address" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
